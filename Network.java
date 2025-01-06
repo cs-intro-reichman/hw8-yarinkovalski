@@ -83,10 +83,10 @@ public class Network {
             return false;
         }
         
-        if (name1==null){
+        if (name1.equals(null)){
             return false;
         }
-        if (name2==null){
+        if (name2.equals(null)){
             return false;
         }
         String newName1 = "" + name1.charAt(0);
@@ -109,7 +109,7 @@ public class Network {
         if (index_2==this.userCount)
             return false;
 
-            
+
         return this.users[i].addFollowee(newName2);
         
     }
