@@ -203,7 +203,11 @@ public class Network {
     // Returns a textual description of all the users in this network, and who they follow.
     public String toString() {
        //// Replace the following statement with your code
-       String ans = "Network:"+ "\n";
+       String ans = "Network:";
+       
+       if (this.userCount!=0)
+            ans = ans + "\n";
+            
        for (int j=0; j<this.userCount; j++)
        {
         if (j<this.userCount-1)
