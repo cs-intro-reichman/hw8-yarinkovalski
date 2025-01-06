@@ -96,18 +96,19 @@ public class Network {
         newName2 = newName2.toUpperCase();
         newName2 += name2.substring(1,name2.length());
         int i=0;
-        int index_2=-1;
+        int index_2=0;
         while (i<this.userCount && !this.users[i].getName().equals(newName1))
             i++;
         
         if (i==this.userCount) //if network is full return false
             return false;
 
-        while (i<this.userCount && !this.users[index_2].getName().equals(newName2))
+        while (index_2<this.userCount && !this.users[index_2].getName().equals(newName2))
             index_2++;
 
-        if (index_2==-1)
+        if (index_2==this.userCount)
             return false;
+
             
         return this.users[i].addFollowee(newName2);
         
