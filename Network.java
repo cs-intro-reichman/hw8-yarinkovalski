@@ -78,6 +78,13 @@ public class Network {
      *  or if the "follows" addition failed for some reason, returns false. */
     public boolean addFollowee(String name1, String name2) {
         //// Replace the following statement with your code
+        if (name1==null){
+            return false;
+        }
+        if (name2==null){
+            return false;
+        }
+        
         String newName1 = "" + name1.charAt(0);
         newName1 = newName1.toUpperCase();
         newName1 += name1.substring(1,name1.length());
