@@ -5,6 +5,7 @@
     // Maximum number of users that a user can follow
     static int maxfCount = 10;
 
+
     private String name;       // name of this user
     private String[] follows;  // array of user names that this user follows
     private int fCount;        // actual number of followees (must be <= maxfCount)
@@ -44,9 +45,14 @@
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
         //// Replace the following statement with your code
+        String newName = "" + name.charAt(0);
+        newName = newName.toUpperCase();
+        newName += name.substring(1,name.length());
+        
+        
         for (int i = 0; i<this.fCount; i++)
         {
-            if (this.follows[i].equals(name))
+            if (this.follows[i].equals(newName))
                 return true;
         }
         return false;
@@ -55,8 +61,12 @@
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
         //// Replace the following statement with your code
-        if (!follows(name) && this.fCount<this.follows.length ){
-            this.follows[this.fCount]= name;
+        
+        String newName = "" + name.charAt(0);
+        newName = newName.toUpperCase();
+        newName += name.substring(1,name.length());
+        if (!follows(newName) && this.fCount<this.follows.length ){
+            this.follows[this.fCount]= newName;
             this.fCount++;
             return true;
         }
@@ -68,8 +78,13 @@
      *  If the name is not in the list, does nothing and returns false. */
     public boolean removeFollowee(String name) {
         //// Replace the following statement with your code
+        
+        String newName = "" + name.charAt(0);
+        newName = newName.toUpperCase();
+        newName += name.substring(1,name.length());
+        
         int i=0;
-        while (i<this.fCount && !this.follows[i].equals(name))
+        while (i<this.fCount && !this.follows[i].equals(newName))
             i++;
         if (i==this.fCount)
             return false;

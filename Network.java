@@ -33,9 +33,12 @@ public class Network {
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
         //// Replace the following statement with your code
+        String newName = "" + name.charAt(0);
+        newName = newName.toUpperCase();
+        newName += name.substring(1,name.length());
         for (int i=0; i<this.users.length; i++)
         {
-            if (this.users[i] != null && this.users[i].getName().equals(name))
+            if (this.users[i] != null && this.users[i].getName().equals(newName))
                 return this.users[i];
         }
 
@@ -48,17 +51,19 @@ public class Network {
     *  Otherwise, creates a new user with the given name, adds the user to this network, and returns true. */
     public boolean addUser(String name) {
         //// Replace the following statement with your code
-        
+        String newName = "" + name.charAt(0);
+        newName = newName.toUpperCase();
+        newName += name.substring(1,name.length());
         if (this.userCount==this.users.length)
             return false;
         
         for (int i=0; i<this.userCount; i++)
         {
-            if (this.users[i].getName().equals(name))
+            if (this.users[i].getName().equals(newName))
                 return false;
         }
 
-        User addedUser = new User(name);
+        User addedUser = new User(newName);
         this.users[userCount]=addedUser;
         this.userCount++;
         
@@ -70,14 +75,20 @@ public class Network {
      *  or if the "follows" addition failed for some reason, returns false. */
     public boolean addFollowee(String name1, String name2) {
         //// Replace the following statement with your code
+        String newName1 = "" + name1.charAt(0);
+        newName1 = newName1.toUpperCase();
+        newName1 += name1.substring(1,name1.length());
+        String newName2 = "" + name2.charAt(0);
+        newName2 = newName2.toUpperCase();
+        newName2 += name2.substring(1,name2.length());
         int i=0;
-        while (i<this.userCount && !this.users[i].getName().equals(name1))
+        while (i<this.userCount && !this.users[i].getName().equals(newName1))
             i++;
         
         if (i==this.userCount) //if network is full return false
             return false;
 
-        return this.users[i].addFollowee(name2);
+        return this.users[i].addFollowee(newName2);
         
     }
     
@@ -85,9 +96,11 @@ public class Network {
      *  the user that has the maximal mutual number of followees as the user with the given name. */
     public String recommendWhoToFollow(String name) {
         //// Replace the following statement with your code
-        
+        String newName = "" + name.charAt(0);
+        newName = newName.toUpperCase();
+        newName += name.substring(1,name.length());
         int i_user=0;
-        while (i_user<this.userCount && !this.users[i_user].getName().equals(name))
+        while (i_user<this.userCount && !this.users[i_user].getName().equals(newName))
             i_user++;
 
         if (i_user==this.userCount) //if network is full return false
@@ -139,8 +152,13 @@ public class Network {
      *  the users in this network. Note: A name can appear 0 or 1 times in each list. */
     private int followeeCount(String name) {
         //// Replace the following statement with your code
+        String newName = "" + name.charAt(0);
+        newName = newName.toUpperCase();
+        newName += name.substring(1,name.length());
+        
+        
         int i=0;
-        while (i<this.userCount && !this.users[i].getName().equals(name))
+        while (i<this.userCount && !this.users[i].getName().equals(newName))
             i++;
         
         if (i==this.userCount) //if network is full return false
