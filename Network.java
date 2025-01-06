@@ -84,7 +84,7 @@ public class Network {
         if (name2==null){
             return false;
         }
-        
+
         String newName1 = "" + name1.charAt(0);
         newName1 = newName1.toUpperCase();
         newName1 += name1.substring(1,name1.length());
@@ -189,7 +189,7 @@ public class Network {
     // Returns a textual description of all the users in this network, and who they follow.
     public String toString() {
        //// Replace the following statement with your code
-       String ans = "";
+       String ans = "Network: ";
        for (int j=0; j<this.userCount; j++)
        {
         ans = ans + this.users[j].toString()+ "\n";  
