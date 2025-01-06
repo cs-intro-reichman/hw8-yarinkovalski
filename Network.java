@@ -79,16 +79,18 @@ public class Network {
     public boolean addFollowee(String name1, String name2) {
         //// Replace the following statement with your code
         
+        if (name1==null){
+            return false;
+        }
+        if (name2==null){
+            return false;
+        }
+
         if (name1.equals(name2)){
             return false;
         }
         
-        if (name1.equals(null)){
-            return false;
-        }
-        if (name2.equals(null)){
-            return false;
-        }
+
         String newName1 = "" + name1.charAt(0);
         newName1 = newName1.toUpperCase();
         newName1 += name1.substring(1,name1.length());
@@ -109,7 +111,7 @@ public class Network {
         if (index_2==this.userCount)
             return false;
 
-
+            
         return this.users[i].addFollowee(newName2);
         
     }
