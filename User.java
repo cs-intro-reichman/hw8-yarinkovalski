@@ -122,7 +122,5 @@
             ans = ans + follows[i] + " ";
         }
         return ans;
-
-        
     }
 }
