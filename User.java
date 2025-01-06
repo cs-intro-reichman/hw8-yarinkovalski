@@ -78,7 +78,9 @@
      *  If the name is not in the list, does nothing and returns false. */
     public boolean removeFollowee(String name) {
         //// Replace the following statement with your code
-        
+        if (name==null){
+            return false;
+        }
         String newName = "" + name.charAt(0);
         newName = newName.toUpperCase();
         newName += name.substring(1,name.length());
