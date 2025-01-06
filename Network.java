@@ -10,6 +10,7 @@ public class Network {
     public Network(int maxUserCount) {
         this.users = new User[maxUserCount];
         this.userCount = 0;
+        
     }
 
     /** Creates a network  with some users. The only purpose of this constructor is 
