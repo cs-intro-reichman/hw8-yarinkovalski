@@ -13,6 +13,11 @@ public class Network {
         
     }
 
+    public int getUserCount(){
+        return this.userCount;
+    }
+
+
     /** Creates a network  with some users. The only purpose of this constructor is 
      *  to allow testing the toString and getUser methods, before implementing other methods. */
     public Network(int maxUserCount, boolean gettingStarted) {
@@ -163,6 +168,5 @@ public class Network {
        }
 
        return ans;
- 
     }
 }
