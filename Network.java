@@ -78,13 +78,17 @@ public class Network {
      *  or if the "follows" addition failed for some reason, returns false. */
     public boolean addFollowee(String name1, String name2) {
         //// Replace the following statement with your code
+        
+        if (name1.equals(name2)){
+            return false;
+        }
+        
         if (name1==null){
             return false;
         }
         if (name2==null){
             return false;
         }
-
         String newName1 = "" + name1.charAt(0);
         newName1 = newName1.toUpperCase();
         newName1 += name1.substring(1,name1.length());
@@ -92,12 +96,19 @@ public class Network {
         newName2 = newName2.toUpperCase();
         newName2 += name2.substring(1,name2.length());
         int i=0;
+        int index_2=-1;
         while (i<this.userCount && !this.users[i].getName().equals(newName1))
             i++;
         
         if (i==this.userCount) //if network is full return false
             return false;
 
+        while (i<this.userCount && !this.users[index_2].getName().equals(newName2))
+            index_2++;
+
+        if (index_2==-1)
+            return false;
+            
         return this.users[i].addFollowee(newName2);
         
     }
