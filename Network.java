@@ -51,6 +51,9 @@ public class Network {
     *  Otherwise, creates a new user with the given name, adds the user to this network, and returns true. */
     public boolean addUser(String name) {
         //// Replace the following statement with your code
+        if (name==null){
+            return false;
+        }
         String newName = "" + name.charAt(0);
         newName = newName.toUpperCase();
         newName += name.substring(1,name.length());
